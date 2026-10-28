@@ -1,0 +1,325 @@
+:root {
+  --verde-900: #14532d;
+  --verde-700: #166534;
+  --verde-500: #22c55e;
+  --verde-50: #f0fdf4;
+  --cinza-900: #0f172a;
+  --cinza-700: #334155;
+  --cinza-500: #64748b;
+  --cinza-200: #e2e8f0;
+  --cinza-100: #f1f5f9;
+  --cinza-50: #f8fafc;
+  --branco: #ffffff;
+  --sombra: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --sombra-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  --cor-reciclaveis: #22c55e;
+  --cor-oleo: #eab308;
+  --cor-eletronicos: #ef4444;
+  --cor-pilhas: #a855f7;
+  --cor-medicamentos: #0ea5e9;
+  --cor-entulho: #a16207;
+  --cor-podas: #15803d;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--cinza-900);
+  background: var(--cinza-50);
+}
+
+/* ====== Topbar ====== */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--verde-700);
+  color: var(--branco);
+  box-shadow: var(--sombra);
+  z-index: 1000;
+  position: relative;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.logo {
+  font-size: 2rem;
+  line-height: 1;
+}
+.topbar h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.subtitle {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+.btn-location {
+  background: var(--branco);
+  color: var(--verde-700);
+  border: none;
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--sombra);
+  transition: transform 0.1s ease, background 0.15s ease;
+}
+.btn-location:hover { background: var(--verde-50); }
+.btn-location:active { transform: scale(0.97); }
+
+/* ====== Layout ====== */
+.layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  height: calc(100vh - 64px);
+}
+.sidebar {
+  background: var(--branco);
+  overflow-y: auto;
+  border-right: 1px solid var(--cinza-200);
+  display: flex;
+  flex-direction: column;
+}
+.mapa {
+  height: 100%;
+  width: 100%;
+}
+
+/* ====== Filtros ====== */
+.filtros {
+  padding: 1.25rem;
+  border-bottom: 1px solid var(--cinza-200);
+}
+.filtros h2 {
+  margin: 0 0 0.75rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--cinza-500);
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  border: 2px solid var(--cinza-200);
+  background: var(--branco);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+.chip:hover { border-color: var(--cinza-500); }
+.chip .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.chip.ativo {
+  border-color: var(--verde-700);
+  background: var(--verde-50);
+  color: var(--verde-900);
+}
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.9rem;
+}
+.btn-ghost {
+  flex: 1;
+  background: transparent;
+  color: var(--cinza-700);
+  border: 1px solid var(--cinza-200);
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.btn-ghost:hover { background: var(--cinza-100); }
+
+/* ====== Lista ====== */
+.lista {
+  padding: 1.25rem;
+  flex: 1;
+}
+.lista h2 {
+  margin: 0 0 0.75rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--cinza-500);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.badge {
+  background: var(--verde-500);
+  color: var(--branco);
+  font-size: 0.75rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-weight: 700;
+}
+.pontos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.ponto-card {
+  padding: 0.85rem;
+  border: 1px solid var(--cinza-200);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  background: var(--branco);
+}
+.ponto-card:hover {
+  border-color: var(--verde-500);
+  box-shadow: var(--sombra-md);
+  transform: translateY(-1px);
+}
+.ponto-card h3 {
+  margin: 0 0 0.25rem;
+  font-size: 0.95rem;
+  color: var(--cinza-900);
+}
+.ponto-card .end {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  color: var(--cinza-500);
+  line-height: 1.3;
+}
+.ponto-card .tags {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.15rem 0.5rem;
+  background: var(--cinza-100);
+  border-radius: 4px;
+  font-size: 0.72rem;
+  color: var(--cinza-700);
+  font-weight: 500;
+}
+.tag .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.rodape {
+  padding: 1rem 1.25rem;
+  border-top: 1px solid var(--cinza-200);
+  font-size: 0.75rem;
+  color: var(--cinza-500);
+  line-height: 1.4;
+}
+.rodape p { margin: 0; }
+
+/* ====== Popup Leaflet ====== */
+.leaflet-popup-content-wrapper {
+  border-radius: 10px;
+  box-shadow: var(--sombra-md);
+}
+.leaflet-popup-content {
+  margin: 0.9rem 1rem;
+  font-family: inherit;
+}
+.popup h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1rem;
+  color: var(--verde-900);
+}
+.popup p {
+  margin: 0.2rem 0;
+  font-size: 0.85rem;
+  color: var(--cinza-700);
+  line-height: 1.4;
+}
+.popup .popup-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin: 0.5rem 0;
+}
+.popup .obs {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--cinza-200);
+  font-size: 0.8rem;
+  color: var(--cinza-500);
+  font-style: italic;
+}
+
+/* ====== Marker custom ====== */
+.marker-pin {
+  width: 32px;
+  height: 42px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.marker-pin::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50% 50% 50% 0;
+  background: var(--verde-500);
+  transform: rotate(-45deg);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.marker-pin span {
+  position: relative;
+  color: white;
+  font-size: 1rem;
+  z-index: 1;
+  transform: translateY(-4px);
+}
+
+/* ====== Responsivo ====== */
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 50vh;
+  }
+  .sidebar {
+    max-height: 50vh;
+    border-right: none;
+    border-bottom: 1px solid var(--cinza-200);
+  }
+  .topbar h1 { font-size: 1.05rem; }
+  .subtitle { font-size: 0.75rem; }
+}

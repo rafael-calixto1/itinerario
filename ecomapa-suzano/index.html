@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoMapa Suzano — Onde descartar?</title>
+  <meta name="description" content="Mapa de pontos de descarte correto de resíduos em Suzano: recicláveis, óleo, eletrônicos, pilhas, medicamentos e entulho." />
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">♻️</span>
+      <div>
+        <h1>EcoMapa Suzano</h1>
+        <p class="subtitle">Onde descartar corretamente em Suzano - SP</p>
+      </div>
+    </div>
+    <button id="btnLocalizar" class="btn-location" title="Encontrar pontos perto de mim">
+      📍 Perto de mim
+    </button>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <section class="filtros">
+        <h2>Filtrar por tipo de resíduo</h2>
+        <div id="chips" class="chips"></div>
+        <div class="actions">
+          <button id="btnTodos" class="btn-ghost">Mostrar todos</button>
+          <button id="btnLimpar" class="btn-ghost">Limpar</button>
+        </div>
+      </section>
+
+      <section class="lista">
+        <h2>Pontos <span id="contador" class="badge">0</span></h2>
+        <ul id="listaPontos" class="pontos"></ul>
+      </section>
+
+      <footer class="rodape">
+        <p>Projeto de extensão universitária.<br />Dados ilustrativos — confirme horários antes de ir.</p>
+      </footer>
+    </aside>
+
+    <div id="map" class="mapa" role="application" aria-label="Mapa de pontos de descarte"></div>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="pontos.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
